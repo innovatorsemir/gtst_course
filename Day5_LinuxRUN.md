@@ -55,7 +55,7 @@ sudo usermod your_username -s /bin/shell
 
 ---
 
-# Advanced Group Commands
+## Advanced Group Commands
 
 ### Create a New Group
 
@@ -596,10 +596,11 @@ Package managers are:
 ### Package Management Structure
 
 ```text
-LINUX SYSTEM <----- PACKAGE MANAGER -----> REPOSITORY
-      |
-      |
-PACKAGE METADATA       PACKAGES -----> PACKAGE DEPENDENCIES
+LINUX SYSTEM <----- PACKAGE MANAGER -----> 
+              REPOSITORY
+            |         |
+            |         |
+PACKAGE METADATA     PACKAGES -----> PACKAGE DEPENDENCIES
 ```
 
 ## The Repository
