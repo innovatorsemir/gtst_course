@@ -305,6 +305,657 @@ The function then returns the values back through the previous calls.
 
 ---
 
+# Lambda → Map / Filter
+
+## Lambda Functions
+
+- A lambda function is a small anonymous function.
+- It is created using the `lambda` keyword.
+- Lambda functions are useful when we need a short function for a simple operation.
+- A lambda function can take any number of arguments but can contain only one expression.
+
+### Syntax
+
+```python
+lambda arguments: expression
+```
+
+### Example
+
+```python
+square = lambda x: x * x
+
+print(square(5))
+
+# Output:
+# 25
+```
+
+### Example with Two Arguments
+
+```python
+add = lambda x, y: x + y
+
+print(add(5, 3))
+
+# Output:
+# 8
+```
+
+---
+
+## Map Function
+
+- `map()` is used to apply a function to every item in an iterable.
+- It is commonly used together with a lambda function.
+
+### Syntax
+
+```python
+map(function, iterable)
+```
+
+### Example
+
+```python
+numbers = [1, 2, 3, 4, 5]
+
+squares = map(lambda x: x * x, numbers)
+
+print(list(squares))
+
+# Output:
+# [1, 4, 9, 16, 25]
+```
+
+### Another Example
+
+```python
+numbers = [1, 2, 3, 4]
+
+result = map(lambda x: x + 10, numbers)
+
+print(list(result))
+
+# Output:
+# [11, 12, 13, 14]
+```
+
+---
+
+## Filter Function
+
+- `filter()` is used to select items from an iterable based on a condition.
+- It keeps the items for which the function returns `True`.
+- It is also commonly used with a lambda function.
+
+### Syntax
+
+```python
+filter(function, iterable)
+```
+
+### Example
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+even_numbers = filter(lambda x: x % 2 == 0, numbers)
+
+print(list(even_numbers))
+
+# Output:
+# [2, 4, 6]
+```
+
+### Map vs Filter
+
+| Function | Purpose |
+|---|---|
+| `map()` | Changes or transforms every item |
+| `filter()` | Selects items based on a condition |
+| `lambda` | Creates a small anonymous function |
+
+---
+
+# OOP & POP
+
+## Object-Oriented Programming / OOP
+
+- Python is an object-oriented programming language.
+- This means many things in Python are objects.
+- Objects can have **attributes (properties)** and **methods (actions/functions)**.
+
+### Example: Computer
+
+My computer can be considered an object.
+
+**Attributes:**
+- Name
+- Size
+- CPU
+- RAM
+
+**Behaviors / Methods:**
+- Running games
+- Playing music
+- Displaying text
+
+### Everything is an Object
+
+In Python, many values are objects.
+
+For example:
+
+```python
+a = 4
+
+print(type(a))
+
+# Output:
+# <class 'int'>
+```
+
+Here:
+- `a` is an object.
+- `int` is a class.
+
+---
+
+## POP — Procedural-Oriented Programming
+
+- Procedural-Oriented Programming (POP) organizes a program around procedures or functions.
+- The main focus is on the sequence of instructions and functions used to perform tasks.
+- Data and functions are generally handled separately.
+
+### OOP vs POP
+
+| OOP | POP |
+|---|---|
+| Focuses on objects | Focuses on procedures/functions |
+| Data and behavior are grouped together | Data and functions are generally separate |
+| Uses classes and objects | Uses functions/procedures |
+| Supports concepts such as inheritance and encapsulation | Mainly focuses on step-by-step procedures |
+
+---
+
+# Class & Objects
+
+## Python Class
+
+- A class is simply a place where we create an object's attributes and behaviors.
+- It is like a template.
+- A class is a **blueprint** for objects.
+
+### Syntax
+
+```python
+class Computer:
+    # Creating Attributes
+    name = ""
+    cpu = ""
+```
+
+- After creating the blueprint, we can create objects based on the class.
+- In the example above, we created a `Computer` class and gave it the attributes `name` and `cpu`.
+- Conventionally, class names start with a capital letter.
+
+---
+
+## Creating Objects
+
+- We can create many objects based on one class.
+- Example objects:
+  - `Nathan_Computer`
+  - `Alemayew_Computer`
+
+### Syntax
+
+```text
+variable = ClassName()
+variable.attribute = value
+```
+
+### Example
+
+```python
+class Computer:
+    name = ""
+    cpu = ""
+
+
+# Creating an object based on the blueprint
+Nathan_Computer = Computer()
+
+Nathan_Computer.name = "HP Laptop"
+Nathan_Computer.cpu = "Intel Core i5"
+
+
+# Creating another object
+Alemayew_Computer = Computer()
+
+Alemayew_Computer.name = "Dell Desktop"
+Alemayew_Computer.cpu = "Intel Core i3"
+
+
+print(
+    f"Nathan's Computer Name is called {Nathan_Computer.name}.\n"
+    f"It is {Nathan_Computer.cpu}"
+)
+
+# Output:
+# Nathan's Computer Name is called HP Laptop.
+# It is Intel Core i5
+```
+
+Based on a `Flower` class, we can create different objects such as:
+- Daisy
+- Sunflower
+- Lily
+
+---
+
+## Checking the Type of an Object
+
+```python
+class Computer:
+    name = ""
+    cpu = ""
+
+
+Nathan_Computer = Computer()
+
+print(type(Nathan_Computer))
+
+# Output:
+# <class '__main__.Computer'>
+```
+
+Compare this with:
+
+```python
+a = 4
+
+print(type(a))
+
+# Output:
+# <class 'int'>
+```
+
+- `Nathan_Computer` and `a` are objects.
+- `Computer` and `int` are classes.
+
+---
+
+## Giving Behaviors — Creating Methods
+
+- Functions defined inside a class are called **methods**.
+- Methods are used to give objects behaviors.
+- Methods normally use `self` to refer to the current object.
+
+### Example
+
+```python
+class Computer:
+    # Creating Attributes
+    name = ""
+    cpu = ""
+
+    # Creating Behavior
+    def run(self):
+        return "BIOS is Good!"
+
+
+# Creating an object
+Nathan_Computer = Computer()
+
+Nathan_Computer.name = "HP Laptop"
+Nathan_Computer.cpu = "Intel Core i5"
+
+print(f"Running: {Nathan_Computer.run()}")
+
+# Output:
+# Running: BIOS is Good!
+```
+
+### What is `self`?
+
+- `self` refers to the current object.
+- It allows the method to access the object's attributes and other methods.
+
+---
+
+# Python Constructors
+
+- A constructor is a special method that is called whenever a new object is created.
+- In Python, the constructor method is `__init__()`.
+- It is commonly used to initialize object attributes.
+
+### Example
+
+```python
+class Bike:
+
+    def __init__(self, name=""):
+        self.name = name
+
+
+bike1 = Bike()
+
+print(bike1.name)
+
+# Output:
+#
+```
+
+We can also provide a value while creating the object:
+
+```python
+class Bike:
+
+    def __init__(self, name=""):
+        self.name = name
+
+
+bike1 = Bike("Mountain Bike")
+
+print(bike1.name)
+
+# Output:
+# Mountain Bike
+```
+
+---
+
+## Constructor with Multiple Attributes
+
+```python
+class Computer:
+
+    def __init__(self, name, cpu):
+        self.name = name
+        self.cpu = cpu
+
+    # Creating Behavior
+    def run(self):
+        return "BIOS is Good!"
+
+
+Nathan_Computer = Computer("HP Laptop", "Intel i5")
+
+Alemayew_Computer = Computer(
+    "Dell Desktop",
+    "Intel Core i3"
+)
+
+
+print(
+    f"Nathan's Computer Name is called "
+    f"{Nathan_Computer.name}.\n"
+    f"It is {Nathan_Computer.cpu}"
+)
+
+# Output:
+# Nathan's Computer Name is called HP Laptop.
+# It is Intel i5
+```
+
+---
+
+# Python Inheritance
+
+- Inheritance is a way of creating a new class with some properties and behaviors of an existing class.
+- The existing class is called the **base class** or **parent class**.
+- The new class is called the **derived class** or **child class**.
+
+### Syntax
+
+```python
+class NewClass(OldClass):
+    # ...
+```
+
+### Example
+
+```python
+# Base class
+class Animal:
+
+    def eat(self):
+        print("I can eat!")
+
+    def sleep(self):
+        print("I can sleep!")
+
+
+# Derived class
+class Dog(Animal):
+
+    def bark(self):
+        print("I can bark! Woof woof!")
+
+
+# Create object of the Dog class
+dog1 = Dog()
+
+# Calling members of the base class
+dog1.eat()
+dog1.sleep()
+
+# Calling member of the derived class
+dog1.bark()
+
+# Output:
+# I can eat!
+# I can sleep!
+# I can bark! Woof woof!
+```
+
+The `Dog` class inherits the methods of the `Animal` class and can also have its own methods.
+
+---
+
+# Python Encapsulation
+
+- Encapsulation is a feature of OOP.
+- It refers to bundling attributes and methods inside a single class.
+- Encapsulation allows for better control and protection of data.
+- Data can be accessed and modified through specified methods.
+
+### Example
+
+```python
+class Computer:
+
+    def __init__(self, name, cpu):
+        self.name = name
+        self.cpu = cpu
+        self.price = 1000
+
+    # Creating Behavior
+    def run(self):
+        return "BIOS is Good!"
+
+    def setprice(self, birr):
+        self.price = birr
+
+
+# Creating objects
+Nathan_Computer = Computer("HP Laptop", "Intel i5")
+
+Alemayew_Computer = Computer(
+    "Dell Desktop",
+    "Intel Core i3"
+)
+
+
+print(
+    f"Nathan Computer price is: "
+    f"{Nathan_Computer.price} birr."
+)
+
+# Change the price
+Nathan_Computer.setprice(2000)
+
+print(
+    f"Nathan Computer price is: "
+    f"{Nathan_Computer.price} birr."
+)
+
+# Output:
+# Nathan Computer price is: 1000 birr.
+# Nathan Computer price is: 2000 birr.
+```
+
+---
+
+# User-built Module
+
+- A module is a Python file containing code that can be reused in another Python program.
+- We can create our own modules instead of putting all code into one file.
+- User-built modules help organize programs and make code reusable.
+
+## Creating a User-built Module
+
+Suppose we create a file called:
+
+```text
+calculator.py
+```
+
+Inside `calculator.py`:
+
+```python
+def add(a, b):
+    return a + b
+
+
+def subtract(a, b):
+    return a - b
+```
+
+Now create another file:
+
+```text
+main.py
+```
+
+We can import our module:
+
+```python
+import calculator
+
+print(calculator.add(10, 5))
+print(calculator.subtract(10, 5))
+
+# Output:
+# 15
+# 5
+```
+
+---
+
+## Importing Specific Functions
+
+Instead of importing the entire module, we can import specific functions.
+
+```python
+from calculator import add
+
+print(add(10, 5))
+
+# Output:
+# 15
+```
+
+We can also import multiple functions:
+
+```python
+from calculator import add, subtract
+
+print(add(10, 5))
+print(subtract(10, 5))
+```
+
+---
+
+## Using an Alias
+
+We can give a module a shorter name using `as`.
+
+```python
+import calculator as calc
+
+print(calc.add(10, 5))
+```
+
+---
+
+# Package Installing
+
+- As we have seen package installing in the Linux tutorial, we use `pip` to install Python packages.
+- On the terminal:
+
+```bash
+pip install package_name
+```
+
+Example:
+
+```bash
+pip install requests
+```
+
+---
+
+# Package Using
+
+- Python has many packages that we can use in our programs.
+- We use `import` to bring a package or module into our program.
+
+Example:
+
+```python
+import sys
+
+a = sys.argv[1]
+
+print(a)
+```
+
+Here:
+- We imported the `sys` module.
+- From the `sys` module, we used `argv`.
+- `argv` is used to access command-line arguments.
+
+### Command-line Example
+
+```bash
+python gtst.py Semir
+```
+
+Example program:
+
+```python
+import sys
+
+name = sys.argv[1]
+
+print(f"Hello {name}!")
+```
+
+Output:
+
+```text
+Hello Semir!
+```
+
+- Each package can have its own classes, functions, and methods.
+- We need to study the documentation and structure of each package to use it correctly.
+- Examples of Python packages/frameworks used in different areas include Django, Flask, pandas, and NumPy.
+
+---
+
 # Quick Summary
 
 | Topic | Description |
@@ -318,3 +969,23 @@ The function then returns the values back through the previous calls.
 | Default Argument | An argument with a predefined value |
 | Recursion | A function calling itself |
 | Base Condition | The condition that stops recursion |
+| Lambda | A small anonymous function |
+| `map()` | Applies a function to every item |
+| `filter()` | Selects items based on a condition |
+| OOP | Object-Oriented Programming |
+| POP | Procedural-Oriented Programming |
+| Class | A blueprint for creating objects |
+| Object | An instance created from a class |
+| Attribute | A property/data belonging to an object |
+| Method | A function defined inside a class |
+| `self` | Refers to the current object |
+| Constructor | `__init__()` method used to initialize objects |
+| Inheritance | Creating a new class from an existing class |
+| Encapsulation | Bundling data and methods inside a class |
+| Module | A Python file containing reusable code |
+| `import` | Used to import a module or package |
+| `pip` | Tool used to install Python packages |
+
+---
+
+@innovatorsemir
