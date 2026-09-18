@@ -335,25 +335,477 @@ ubuntu
 3
 ```
 
+# Bash Input
+
+On Bash, there are two main methods to accept input:
+
+1. `read`
+2. Arguments
+
+## 1. Bash `read`
+
+The `read` command is used to accept input while the script is running.
+
+### Syntax
+
+```bash
+read -p "Text To Display" var
+```
+
+For hidden input such as a password:
+
+```bash
+read -sp "Password: " var
+```
+
+For accepting an array:
+
+```bash
+read -a var
+```
+
+### Basic Input Example
+
+```bash
+#!/bin/bash
+
+echo "[?] WELCOME TO GTST"
+read -p "[+] ENTER YOUR NAME: " NAME
+
+echo "YOUR NAME IS $NAME"
+```
+
+Example:
+
+```text
+[?] WELCOME TO GTST
+[+] ENTER YOUR NAME: Nathan
+YOUR NAME IS Nathan
+```
+
+### Hidden Password Input
+
+```bash
+#!/bin/bash
+
+echo "[?] GTST COMPANY LOGIN."
+
+read -p "[+] Enter Username: " NAME
+read -sp "[+] Enter Password: " PASS
+
+echo
+echo "Your Username is $NAME"
+echo "Your Password is $PASS"
+```
+
+The `-s` option prevents the password from being displayed while it is entered.
+
+### Array Input with `read -a`
+
+```bash
+#!/bin/bash
+
+echo "[?] GTST COMPANY Names"
+
+read -a NAMES
+
+echo
+echo "The 1st Worker name: ${NAMES[0]}"
+echo "The 2nd Worker name: ${NAMES[1]}"
+echo "The 3rd Worker name: ${NAMES[2]}"
+```
+
+Example input:
+
+```text
+Nathan Hailu Abebe
+```
+
+Output:
+
+```text
+The 1st Worker name: Nathan
+The 2nd Worker name: Hailu
+The 3rd Worker name: Abebe
+```
+
+---
+
+# 2. Bash Arguments
+
+Arguments provide input when starting the script.
+
+### Positional Argument Syntax
+
+Bash provides positional parameters such as:
+
+```text
+$0
+$1
+$2
+$3
+...
+$9
+```
+
+- `$0` is the script name.
+- `$1` is the first argument.
+- `$2` is the second argument.
+
+Example:
+
+```bash
+#!/bin/bash
+
+echo "Your name is: $1"
+echo "Your Father name is: $2"
+```
+
+Run:
+
+```bash
+/bin/bash hello.sh Semir Nesredin
+```
+
+Output:
+
+```text
+Your name is: Semir
+Your Father name is: Nesredin
+```
+
+---
+
+# Comments and Indentation
+
+## Comments
+
+Comments are used to explain code and are not executed.
+
+### Single-Line Comments
+
+In Bash, a comment starts with `#`.
+
+```bash
+#!/bin/bash
+
+# This is a single line comment in Bash Script.
+echo "Enter your name:"
+
+read name
+
+echo
+
+# This is another single line comment.
+echo "The current user name is $name"
+```
+
+### Multi-Line Comments
+
+A common Bash technique for a multi-line comment is:
+
+```bash
+: << COMMENTS
+This is the first comment
+This is the second comment
+This is the third comment
+COMMENTS
+```
+
+Example:
+
+```bash
+#!/bin/bash
+
+: << COMMENTS
+This is the first comment
+This is the second comment
+This is the third comment
+COMMENTS
+
+echo "Hello World"
+```
+
+Output:
+
+```text
+Hello World
+```
+
+> Note: Bash does not require indentation in the same way Python does, but indentation is still useful for making scripts readable.
+
+---
+
+# Bash `sleep`
+
+The `sleep` command pauses the script for a specified amount of time.
+
+### Syntax
+
+```bash
+sleep NUMBERs
+```
+
+Example:
+
+```bash
+#!/bin/bash
+
+echo "Your name is: $1"
+sleep 2s
+echo "Your Father name is $2"
+```
+
+Run:
+
+```bash
+/bin/bash hello.sh Nathan Hailu
+```
+
+Output:
+
+```text
+Your name is: Nathan
+```
+
+After two seconds:
+
+```text
+Your Father name is Hailu
+```
+
+---
+
+# Arithmetic Operations
+
+To perform arithmetic operations in Bash, use:
+
+```bash
+$((expression))
+```
+
+The `let` keyword can also be used for arithmetic assignment.
+
+## Arithmetic Operators
+
+| Operation | Operator | Example |
+|---|---|---|
+| Addition | `+` | `$((a + b))` |
+| Subtraction | `-` | `$((a - b))` |
+| Multiplication | `*` | `$((a * b))` |
+| Division | `/` | `$((a / b))` |
+| Exponentiation | `**` | `$((a ** b))` |
+| Modulo | `%` | `$((a % b))` |
+
+Example:
+
+```bash
+#!/bin/bash
+
+a=22
+b=22
+
+echo "The sum is: $((a+b))"
+```
+
+Output:
+
+```text
+The sum is: 44
+```
+
+## Assignment Operations
+
+Examples:
+
+```bash
+let a+=3
+let a-=3
+let a*=3
+let a/=3
+```
+
+These can be used to increment, decrement, multiply, or divide the value of a variable.
+
+---
+
+# Comparison Operations
+
+Bash provides comparison operators for numeric comparisons.
+
+| Meaning | Numeric Operator | Symbol Form |
+|---|---|---|
+| Greater than | `-gt` | `>` |
+| Less than | `-lt` | `<` |
+| Greater than or equal | `-ge` | `>=` |
+| Less than or equal | `-le` | `<=` |
+| Equal | `-eq` | `=` |
+| Not equal | `-ne` | `!=` |
+
+For numeric comparisons, operators such as `-gt`, `-lt`, `-ge`, `-le`, `-eq`, and `-ne` are commonly used inside `[ ]`.
+
+---
+
+# If-Else Conditions
+
+## Syntax
+
+```bash
+#!/bin/bash
+
+if [ condition ]
+then
+    # body
+else
+    # body
+fi
+```
+
+Bash uses `fi` to mark the end of an `if` statement.
+
+### Using `[ condition ]`
+
+Example:
+
+```bash
+#!/bin/bash
+
+if [ 2 -gt 1 ]
+then
+    echo "he"
+else
+    echo "bye"
+fi
+```
+
+Output:
+
+```text
+he
+```
+
+### Using Arithmetic Conditions
+
+Arithmetic conditions can also be written using `(( ))`:
+
+```bash
+#!/bin/bash
+
+if (( 2 > 1 ))
+then
+    echo "he"
+else
+    echo "bye"
+fi
+```
+
+Output:
+
+```text
+he
+```
+
+---
+
+# Nested If
+
+A nested `if` means using an `if` statement inside another `if` statement.
+
+Example:
+
+```bash
+#!/bin/bash
+
+if [ "$1" -gt 50 ]
+then
+    echo "Number is greater than 50."
+
+    if (( $1 % 2 == 0 ))
+    then
+        echo "and it is an even number."
+    fi
+fi
+```
+
+Run:
+
+```bash
+/bin/bash hello.sh 60
+```
+
+Output:
+
+```text
+Number is greater than 50.
+and it is an even number.
+```
+
+---
+
+# Logical Conditions
+
+Bash can combine conditions using logical operators.
+
+Common logical operators include:
+
+- `&&` — AND
+- `||` — OR
+- `!` — NOT
+
+Example:
+
+```bash
+#!/bin/bash
+
+if [[ 10 -eq 10 && 5 -gt 4 || 3 -eq 4 || 3 -lt 6 ]]
+then
+    echo "Condition is true."
+fi
+```
+
+The logic can be understood as:
+
+```text
+True && True || False || True
+True    ||     True
+       True
+```
+
+Output:
+
+```text
+Condition is true.
+```
+
+---
+
 # Quick Summary
 
 | Topic | Description |
 |---|---|
 | Bash | Bourne Again Shell |
-| Bash Script | A file containing shell commands |
-| Shebang | Tells the shell which interpreter to use |
+| Shell | Interface used to interact with the operating system/kernel |
+| Script | File containing commands executed by a shell |
+| Shebang | Specifies the interpreter used to execute a script |
 | `echo` | Displays output |
-| `chmod +x` | Adds executable permission |
 | Variable | Stores a value |
 | `$VARIABLE` | Accesses a variable |
-| `${VARIABLE}` | Useful when combining a variable with text |
-| `set` | Assigns values to positional parameters |
-| System Variable | Variable provided by the system |
+| `${VARIABLE}` | Accesses a variable when attaching text |
+| `set` | Assigns positional parameters |
+| `$1`, `$2` | Positional arguments |
+| `read` | Accepts input while a script is running |
+| `read -s` | Accepts hidden input |
+| `read -a` | Accepts input into an array |
+| `#` | Single-line comment |
+| `sleep` | Pauses script execution |
+| `$(( ))` | Performs arithmetic |
+| `if` | Tests a condition |
+| `else` | Runs when the `if` condition is false |
+| `fi` | Ends an `if` statement |
+| `&&` | Logical AND |
+| `||` | Logical OR |
+| `!` | Logical NOT |
 | Array | Stores multiple values |
-| `${array[@]}` | Gets all array elements |
-| `${!array[@]}` | Gets array indexes |
-| `${#array[@]}` | Gets array length |
-| `unset` | Removes an array element |
 
 ---
 
