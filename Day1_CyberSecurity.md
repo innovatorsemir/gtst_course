@@ -1,4 +1,4 @@
-# Day 3 – Introduction to Cyber Security
+# Day 1 – Introduction to Cyber Security
 
 ## What is Cyber Security?
 
