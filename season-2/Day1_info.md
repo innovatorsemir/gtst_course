@@ -1836,178 +1836,6 @@ Purpose: Search for possible public accounts associated with a username.
 
 ---
 
-# 32. Practical Exercises
-
-The following exercises are based on the original Day 1 presentation.
-
-They are intended for learning and authorized OSINT practice.
-
-## Exercise 1 — OSINT Basics
-
-**Time:** 10 minutes (as specified in the course presentation).
-
-1. Explore the OSINT Framework and understand its categories.
-2. Find the IP address associated with the Ministry of Education website:
-   - `https://moe.gov.et/`
-3. Find the IPv6 address associated with:
-   - `https://google.com/`
-4. Investigate how caller identification services work using a test number or a number you are authorized to investigate.
-5. Understand how publicly available contact information is associated with online profiles.
-6. Explore publicly available professional information using a sample name or your own profile.
-7. Identify the JavaScript framework used by YouTube, using an appropriate technology identification tool.
-8. Research the publicly stated favourite football club of the person referred to in the presentation as "Natan Hailu - Geez Tech."
-
-**Learning objectives:**
-
-- Understand OSINT Framework.
-- Practice DNS lookup.
-- Understand IPv4 and IPv6.
-- Explore website technology identification.
-- Learn how public information can be researched.
-
-**Privacy note:** Do not investigate private phone numbers or expose another person's personal information without authorization.
-
-## Exercise 2 — Application Reconnaissance
-
-1. Choose an application you own or have permission to analyze.
-2. Identify its likely programming language.
-3. Investigate the frameworks it uses.
-4. Examine its file structure.
-5. Determine which information can be obtained through static analysis.
-6. Explain what additional information may be obtained through dynamic analysis.
-
-**Question:** What kind of analysis is performed when an Android application is examined without executing it?
-
-**Answer:** Static Analysis.
-
-## Exercise 3 — Reverse Image Search
-
-1. Open Google Images.
-2. Choose an image you own or have permission to investigate.
-3. Perform a reverse image search.
-4. Check whether similar images appear elsewhere.
-5. Compare the results from different reverse image search services.
-6. Document the differences.
-
-**Learning objective:** Understand how image-based searching can help discover publicly available information.
-
-## Exercise 4 — Google Dorking
-
-Practice the following operators using your own website, a lab domain, or another authorized target.
-
-### Task 1: Exact Phrase
-
-```text
-"ethical hacking"
-```
-
-### Task 2: Excluding a Word
-
-```text
-cybersecurity -jobs
-```
-
-### Task 3: Search by Title
-
-```text
-intitle:"cybersecurity training"
-```
-
-### Task 4: Search by URL
-
-```text
-inurl:documentation
-```
-
-### Task 5: Search for PDF Files
-
-```text
-"security policy" filetype:pdf
-```
-
-### Task 6: Search Within a Domain
-
-```text
-site:example.com cybersecurity
-```
-
-### Task 7: Combine Operators
-
-```text
-site:example.com "security policy" filetype:pdf
-```
-
-### Questions
-
-1. What is Google Dorking?
-2. Does Google Dorking mean hacking Google's servers?
-3. What is the purpose of `intitle:`?
-4. What is the purpose of `inurl:`?
-5. How does `filetype:` work?
-6. What is the purpose of `intext:`?
-7. What is the purpose of `site:`?
-8. What happens when you use the minus operator?
-
-## Exercise 5 — Google Hacking Database
-
-Original course exercise topics:
-
-1. Find the "Systems Engineer" document referenced in the INSA website exercise.
-2. Investigate the publicly indexed text file referenced in the presentation.
-3. Produce a screenshot showing a Google search that matches the specified public Geez Tech reference.
-
-**Learning objective:**
-
-- Understand GHDB.
-- Practice Google search operators.
-- Learn how search engines index public documents.
-
-**Safety restriction:** Do not download, redistribute, or inspect confidential documents or exposed sensitive information. Use instructor-provided sample files or an authorized lab environment.
-
-## Exercise 6 — Shodan
-
-1. Create a Shodan account.
-2. Understand the Shodan interface.
-3. Explore its search filters.
-4. Practice filtering devices in an authorized lab or your own organization's assets.
-5. Record the results and explain what each filter does.
-
-### Questions from the Course
-
-1. Find the IP address of the "Ethiopian Vaccination Tool" asset mentioned in the presentation, reportedly located in Yabelo, Ethiopia. If no result is available, document what you tried.
-2. Investigate the college name associated with FTP on port 2121 in the course exercise.
-3. Find how many Windows hosts Shodan reports for Ethiopia.
-4. Investigate which Ethiopian university has the most publicly exposed devices.
-5. Find how many devices expose Tomcat in Ethiopia.
-
-**Learning objective:**
-
-- Understand Shodan.
-- Practice search filters.
-- Understand public internet exposure.
-- Learn how to document search results.
-
-**Important:** Shodan's indexed results can change over time. Record the date and search filters used. Do not connect to or test discovered systems without permission.
-
-## Exercise 7 — GitHub Dorking
-
-Original course exercise topics:
-
-1. Investigate the GitHub account associated with the TelebirrAppID example in the presentation.
-2. Understand the database-password exposure example associated with the username `danang`.
-3. Investigate publicly indexed API-key exposure examples using an authorized test repository.
-
-### Learning Objectives
-
-- Understand GitHub search.
-- Identify common secret-exposure risks.
-- Learn how accidental credential commits happen.
-- Understand why exposed credentials must be revoked.
-
-**Important:** Do not publish or use leaked API keys, passwords, or database credentials. For practice, use intentionally created dummy credentials in a private lab.
-
----
-
 # 33. Key Takeaways
 
 After completing Day 1, you should understand the following concepts.
@@ -2072,6 +1900,32 @@ After completing Day 1, you should understand the following concepts.
 
 ---
 
+# Quick Summary
+
+- **Penetration Testing:** Authorized testing to find security weaknesses.
+- **Reconnaissance:** Collecting information about a target.
+- **Passive Recon:** Gathering information without directly interacting with the target.
+- **Active Recon:** Directly interacting with the target.
+- **OSINT:** Collecting intelligence from publicly available sources.
+- **Footprinting:** Identifying a target's digital presence.
+- **Pre-engagement:** Agreeing on scope, NDA, and Rules of Engagement.
+- **Website Recon:** Finding IP, DNS, WHOIS, hosting, and technologies.
+- **Google Dorking:** Using advanced Google search operators.
+- **Shodan:** Searching for internet-connected devices.
+- **GitHub Dorking:** Finding potentially exposed information in public repositories.
+- **Static Analysis:** Examining files without running them.
+- **Dynamic Analysis:** Examining applications while running.
+- **Red Team:** Offensive security.
+- **Blue Team:** Defensive security.
+
+## Important Tools
+
+Google, Shodan, Maltego, Sherlock, Truecaller, Wappalyzer, BuiltWith, WhatWeb, and OSINT Framework.
+
+## Remember
+
+Always get proper authorization before conducting security testing.
+
 # Final Reminder
 
 > Know the target. Understand the environment. Gather information. Analyze the results. Verify your findings.
@@ -2079,12 +1933,6 @@ After completing Day 1, you should understand the following concepts.
 Reconnaissance is one of the most important foundations of ethical hacking.
 
 A good penetration tester does not simply start attacking a system. They first understand the target, define the scope, gather information, and plan the assessment.
-
-## Day 1 Completed!
-
-**GTSTv2 — Season 2 | Reconnaissance (Information Gathering)**
-
-Practice consistently, document your findings, and always stay within authorized boundaries.
 
 ---
 
