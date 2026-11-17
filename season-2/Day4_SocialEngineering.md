@@ -263,7 +263,34 @@ Scareware is also known as:
 
 **Example:** A website displays a fake warning saying, "Your computer is infected! Download this antivirus immediately."
 
-### 3.8 Eavesdropping
+### 3.8 Tailgating / Piggybacking
+
+**Tailgating** is a physical social engineering attack in which an unauthorized person gains access to a restricted area by following an authorized person through a secured entrance.
+
+It exploits human behavior, such as politeness, carelessness, or failure to verify someone's identity.
+
+**Example:**
+
+An office uses an access-control system or biometric scanner to allow authorized employees to enter.
+
+An unauthorized person waits until an employee opens the door and then follows them inside without using their own credentials.
+
+#### Tailgating vs. Piggybacking
+
+These terms are sometimes used interchangeably, but they can describe slightly different situations:
+
+- **Tailgating:** An unauthorized person follows someone into a restricted area without the person's knowledge or permission.
+- **Piggybacking:** An unauthorized person enters with the knowledge or assistance of an authorized person, often because the authorized person holds the door open.
+
+#### Prevention
+
+- Do not allow unknown people to follow you through secure entrances.
+- Do not share access cards or credentials.
+- Ask visitors to follow the official registration process.
+- Report suspicious entry attempts.
+- Use access-control systems and security awareness training.
+
+### 3.9 Eavesdropping
 
 **Eavesdropping** is secretly listening to private conversations to obtain sensitive information.
 
@@ -309,24 +336,9 @@ This scenario demonstrates how information gathering, impersonation, phishing, a
 
 ---
 
-## 5. Social Engineering in Security Testing
+## 5. Real-World Examples of Social Engineering
 
-Social engineering can also be studied and tested as part of an authorized security assessment.
-
-An organization may hire a cybersecurity professional to evaluate how employees respond to suspicious messages, phone calls, or other manipulation attempts.
-
-The purpose of an authorized social engineering assessment is to:
-- Identify weaknesses in employee awareness.
-- Evaluate security procedures.
-- Test how employees verify unusual requests.
-- Improve organizational security awareness.
-- Recommend better prevention measures.
-
-These tests should be conducted with proper authorization and clearly defined boundaries.
-
----
-
-## 6. Real-World Example: Uber Social Engineering Attack (2022)
+### 5.1 Uber Social Engineering Attack (2022)
 
 The 2022 Uber cybersecurity incident is an example of how social engineering can be used to compromise an organization.
 
@@ -339,22 +351,198 @@ It demonstrates that attackers may target employees rather than directly attacki
 Reference:
 https://www.theverge.com/2022/9/16/23356959/uber-hack-social-engineering-threats
 
-### Additional Video Reference
+Additional reference from the lecture:
 
-https://youtu.be/PWVN3Rg4gzw
+https://www.forbes.com/sites/siladityaray/2022/09/20/social-engineering-how-a-teen-hacker-allegedly-managed-to-breach-both-uber-and-rockstar-games/
+
+### 5.2 Social Engineering Demonstration
+
+Lecture video:
+
+https://youtu.be/PWVN3Rq4gzw
 
 ### Movie References
 
-- Mr. Robot: https://youtu.be/iY18cldUJ8?t=2
-- Hackers: https://youtu.be/G3NT91AWUE
+- Mr. Robot: https://youtu.be/j_YI8cIdUJ8?t=2
+- Hackers: https://youtu.be/_G3NT91AWUE
 
 ---
 
-## 7. Prevention of Social Engineering Attacks
+## 6. Social Media Hacking and Social Engineering
+
+### 6.1 What Is Social Media?
+
+Social media platforms are online services that allow people to connect, communicate, and share information, ideas, and experiences.
+
+Examples include:
+
+- Facebook.
+- Instagram.
+- Telegram.
+- X (formerly Twitter).
+
+### 6.2 Why Are Social Media Companies Difficult to Attack?
+
+Large social media platforms generally have significant security infrastructure and technical teams.
+
+Some reasons they can be difficult to compromise directly include:
+
+- Strong security mechanisms.
+- Protected infrastructure.
+- Monitoring and security teams.
+- Employee cybersecurity awareness.
+- Security testing and vulnerability management.
+
+### 6.3 The Human Weakness
+
+Even when a company's technical infrastructure is well protected, users and employees may still be targeted through social engineering.
+
+Attackers may exploit:
+
+- Weak or reused passwords.
+- Lack of multi-factor authentication.
+- Trust in familiar accounts.
+- Fake login pages.
+- Phishing messages.
+- Impersonation.
+- Account recovery weaknesses.
+
+**Important:** Social media account compromise does not always mean the social media company itself has been hacked. An attacker may compromise an individual account through stolen credentials, phishing, or other account-security weaknesses.
+
+### 6.4 Social Engineering Attack Lifecycle in Social Media
+
+The same four lifecycle phases can be applied to social media attacks:
+
+1. **Investigation:** The attacker studies publicly available information about a person or organization.
+2. **Hook:** The attacker establishes contact using a deceptive message or identity.
+3. **Play:** The attacker attempts to manipulate the victim into revealing information or approving an unsafe action.
+4. **Exit:** The attacker ends the interaction and attempts to avoid detection.
+
+### 6.5 Social-Engineer Toolkit (SET)
+
+The **Social-Engineer Toolkit (SET)** is an open-source penetration-testing framework designed to help security professionals conduct authorized social engineering assessments.
+
+It is associated with Kali Linux and is also available for other security-testing environments.
+
+The lecture introduces SET as a tool that includes website-related social engineering testing capabilities.
+
+#### Main Concepts
+
+- SET can support authorized social engineering assessments.
+- It includes different testing modules.
+- It can help security professionals demonstrate how phishing techniques work.
+- It can be used in controlled training environments to evaluate security awareness.
+
+#### Starting SET in Kali Linux
+
+The lecture introduces the command:
+
+```bash
+sudo setoolkit
+```
+
+To leave the tool, use its exit option.
+
+**Security note:** Use SET only in a lab or an assessment for which you have explicit permission. Do not clone real login pages, collect real users' credentials, or target accounts without authorization.
+
+### 6.6 Website Cloning and Phishing Awareness
+
+A phishing page is a website designed to imitate a legitimate website or service in order to deceive visitors.
+
+Attackers may use visual similarities, familiar logos, and misleading web addresses to make a page appear genuine.
+
+A phishing-awareness demonstration can show how easily users may be deceived.
+
+For safe learning, use:
+
+- A fictional login page.
+- A local training website.
+- Dummy usernames and passwords.
+- Test accounts created specifically for the exercise.
+- A controlled environment with permission from all participants.
+
+The purpose should be to demonstrate warning signs and improve user awareness, not to collect real credentials.
+
+### 6.7 Automated Social Engineering Tools
+
+The lecture mentions several tools and projects that automate parts of phishing demonstrations.
+
+Examples include:
+
+- SocialPhish.
+- Zphisher.
+- Social-Engineer Toolkit (SET).
+
+These tools illustrate how phishing workflows can be automated.
+
+**Important:** Automated phishing tools can be misused to impersonate services and steal credentials. Study their concepts in an authorized lab and never use them against real people or services without explicit permission.
+
+### 6.8 LAN and WAN Concepts
+
+The lecture distinguishes between local network testing and testing over the internet.
+
+**LAN (Local Area Network):**
+
+A network that connects devices within a limited area, such as a home, office, laboratory, or university network.
+
+**WAN (Wide Area Network):**
+
+A network that connects devices and networks across larger geographical areas. The internet is the most familiar example.
+
+The lecture notes that its demonstration works within a LAN and introduces WAN-related testing as a topic for a later class.
+
+A controlled lab should remain isolated unless the instructor has explicitly authorized broader testing.
+
+### 6.9 Manual Creation of Web Pages
+
+The lecture explains that phishing pages are web pages and that web development knowledge can be used to understand how these pages are constructed.
+
+Common web technologies include:
+
+| Technology | Purpose |
+|---|---|
+| HTML | Defines the structure of a web page. |
+| CSS | Controls the visual appearance and layout. |
+| JavaScript | Adds client-side behavior and interactivity. |
+| PHP | Can provide server-side functionality. |
+
+For ethical learning, these technologies can be used to build a fictional security-awareness page that demonstrates suspicious login designs without imitating a real service or collecting actual passwords.
+
+---
+
+## 7. Telegram Account Security and OTP Phishing
+
+Some services use phone numbers and one-time passwords (OTPs) rather than traditional username-and-password login.
+
+An **OTP (One-Time Password)** is a temporary verification code used to confirm a user's identity.
+
+The lecture identifies several Telegram-related phishing scenarios:
+
+1. OTP bots.
+2. Telegram bot-based phishing.
+3. Telegram API-integrated phishing pages.
+
+These concepts demonstrate that attackers may attempt to manipulate users into sharing verification codes or approving unexpected login requests.
+
+### How to Protect Telegram Accounts
+
+- Never share your Telegram login code with another person or bot.
+- Do not enter verification codes into unfamiliar websites.
+- Enable Telegram two-step verification.
+- Review active sessions regularly.
+- Terminate sessions you do not recognize.
+- Be cautious of bots promising account verification, rewards, or support.
+- Contact support through official channels when necessary.
+
+**Important:** A verification code is sensitive authentication information. Treat it like a password.
+
+---
+
+## 8. Prevention of Social Engineering Attacks
 
 Social engineering attacks can be reduced through employee awareness, strong authentication, careful communication, and good security practices.
 
-### 7.1 Employee Awareness
+### 8.1 Employee Awareness
 
 Employees and individuals should understand common social engineering techniques.
 
@@ -366,13 +554,13 @@ They should be trained to recognize:
 - Requests for passwords or confidential information.
 - Messages that create urgency or fear.
 
-### 7.2 Multi-Step Verification
+### 8.2 Multi-Step Verification
 
 Use multi-factor authentication (MFA) to add an extra layer of account protection.
 
 Even if an attacker obtains a password, an additional authentication requirement can make unauthorized access more difficult.
 
-### 7.3 Strong Password Policy
+### 8.3 Strong Password Policy
 
 Use strong and unique passwords.
 
@@ -383,13 +571,13 @@ A good password should:
 - Include a suitable combination of letters, numbers, and symbols.
 - Not be reused across multiple accounts.
 
-### 7.4 Change Default Passwords
+### 8.4 Change Default Passwords
 
 Always replace default passwords on devices, applications, and accounts.
 
 Default credentials are often publicly known and may be easy for attackers to discover.
 
-### 7.5 Use Password Managers
+### 8.5 Use Password Managers
 
 A password manager securely stores passwords and helps users create and maintain unique passwords for different accounts.
 
@@ -400,7 +588,7 @@ Password managers are useful across:
 
 A password vault is a secure storage system for passwords and other authentication information.
 
-### 7.6 Check Links Before Clicking
+### 8.6 Check Links Before Clicking
 
 Avoid clicking suspicious links in emails, messages, or social media posts.
 
@@ -417,7 +605,7 @@ https://redirectdetective.com
 
 **Important:** Link-checking services are not a guarantee of safety. A link that appears safe may still lead to a malicious or compromised website.
 
-### 7.7 Do Not Trust Unexpected Requests Automatically
+### 8.7 Do Not Trust Unexpected Requests Automatically
 
 Do not assume that a message is genuine simply because it comes from a familiar name or account.
 
@@ -429,9 +617,9 @@ An attacker's message may come from:
 
 Verify unusual requests independently, especially requests involving passwords, money, or confidential information.
 
-### 7.8 Be Careful With Password-Checking Websites
+### 8.8 Be Careful With Password-Checking Websites
 
-The lecture mentions the following website:
+The lecture mentions:
 
 https://www.passwordmonster.com
 
@@ -441,7 +629,7 @@ A safer practice is to use a trusted password manager's built-in password-streng
 
 ---
 
-## 8. Useful Cybersecurity Resources
+## 9. Useful Cybersecurity Resources
 
 ### SANS Technology Institute – Cybersecurity Research
 
@@ -458,10 +646,27 @@ The SANS Technology Institute provides cybersecurity research and educational re
 | Password Manager | Store and manage passwords securely. |
 | Password Vault | Secure storage for passwords and authentication information. |
 | SANS Cyber Research | Access cybersecurity research and educational materials. |
+| Social-Engineer Toolkit (SET) | Authorized social engineering security assessments. |
 
 ---
 
-## 9. Quick Summary
+## 10. Recommended Book
+
+**Title:** *The Art of Deception: Controlling the Human Element of Security*
+
+**Author:** Kevin Mitnick
+
+The lecture recommends reading Kevin Mitnick's work to learn more about social engineering and the human element of cybersecurity.
+
+Another well-known book by Kevin Mitnick is:
+
+*The Art of Intrusion: The Real Stories Behind the Exploits of Hackers, Intruders & Deceivers.*
+
+These books discuss social engineering, manipulation, security weaknesses, and real-world security incidents.
+
+---
+
+## 11. Quick Summary – Day 4
 
 - **Social Engineering:** Manipulating people into revealing confidential information or performing unsafe actions.
 - **Purpose:** Steal information, obtain passwords, install malware, or gain unauthorized access.
@@ -476,11 +681,16 @@ The SANS Technology Institute provides cybersecurity research and educational re
 - **Impersonation:** Pretending to be a trusted person.
 - **Baiting:** Using attractive offers to trick victims into unsafe actions.
 - **Scareware:** Using fake security warnings to frighten users.
+- **Tailgating:** Following an authorized person into a restricted physical area.
+- **Piggybacking:** Entering a restricted area with the assistance of an authorized person.
 - **Eavesdropping:** Secretly listening to conversations to collect information.
+- **Social Media Hacking:** Attackers may exploit users through phishing, impersonation, and weak account security.
+- **SET:** A framework used for authorized social engineering assessments.
+- **OTP Phishing:** Attempting to trick users into revealing one-time verification codes.
 - **Prevention:** Employee awareness, MFA, strong passwords, password managers, link verification, and independent identity checks.
 
 **Key Lesson:** Human awareness is an essential part of cybersecurity. Strong technical defenses alone cannot prevent every attack if people are easily manipulated.
 
 ---
 
-@innovatorsemir
+@innovatorsemir**
